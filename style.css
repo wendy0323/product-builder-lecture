@@ -1,3 +1,22 @@
+:root {
+    --bg-color: #f0f0f0;
+    --text-color: #333;
+    --container-bg: transparent;
+    --number-bg: #fff;
+    --number-border: #ccc;
+    --button-bg: #4CAF50;
+    --button-text: white;
+}
+
+[data-theme='dark'] {
+    --bg-color: #1a1a1a;
+    --text-color: #f0f0f0;
+    --container-bg: #2a2a2a;
+    --number-bg: #333;
+    --number-border: #555;
+    --button-bg: #45a049;
+    --button-text: #fff;
+}
 
 body {
     font-family: sans-serif;
@@ -5,12 +24,18 @@ body {
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    background-color: #f0f0f0;
+    background-color: var(--bg-color);
+    color: var(--text-color);
     margin: 0;
+    transition: background-color 0.3s, color 0.3s;
 }
 
 .container {
     text-align: center;
+    padding: 2rem;
+    background-color: var(--container-bg);
+    border-radius: 10px;
+    transition: background-color 0.3s;
 }
 
 .numbers {
@@ -24,13 +49,15 @@ body {
     width: 50px;
     height: 50px;
     border-radius: 50%;
-    background-color: #fff;
-    border: 2px solid #ccc;
+    background-color: var(--number-bg);
+    border: 2px solid var(--number-border);
     display: flex;
     justify-content: center;
     align-items: center;
     font-size: 24px;
     font-weight: bold;
+    color: var(--text-color);
+    transition: background-color 0.3s, border-color 0.3s, color 0.3s;
 }
 
 button {
@@ -40,6 +67,14 @@ button {
     cursor: pointer;
     border: none;
     border-radius: 5px;
-    background-color: #4CAF50;
-    color: white;
+    background-color: var(--button-bg);
+    color: var(--button-text);
+    transition: background-color 0.3s, color 0.3s;
+}
+
+#theme-toggle {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    margin-top: 0;
 }
